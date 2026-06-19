@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://das1128.github.io/h5-page-leyu-com-cn/sitemap.xml

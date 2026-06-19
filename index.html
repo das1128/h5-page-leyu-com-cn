@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>乐鱼体育 · 简明指引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fbe9d7 0%, #f5d6b8 50%, #ecc4a0 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      color: #2d2b2b;
+    }
+    .page-wrap {
+      max-width: 960px;
+      width: 100%;
+    }
+    /* 暖色主视觉卡片 */
+    .hero-card {
+      background: #fffcf7;
+      border-radius: 40px 40px 32px 32px;
+      box-shadow: 0 12px 30px rgba(160, 100, 60, 0.18);
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: box-shadow 0.3s;
+    }
+    .hero-card h1 {
+      font-size: 2.6rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      color: #7f4f2b;
+      margin-bottom: 0.8rem;
+      background: linear-gradient(to right, #9b6b42, #ba7f50);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-sub {
+      font-size: 1.1rem;
+      color: #5e4a3a;
+      background: #f2e4d6;
+      display: inline-block;
+      padding: 0.4rem 1.4rem;
+      border-radius: 40px;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 1rem auto 0;
+      color: #3f3730;
+    }
+
+    /* 通用卡片组 */
+    .cards-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .card {
+      background: #fffcf7;
+      border-radius: 28px;
+      box-shadow: 0 8px 22px rgba(130, 80, 40, 0.10);
+      padding: 1.8rem 1.5rem;
+      flex: 1 1 240px;
+      transition: transform 0.1s ease, box-shadow 0.25s;
+    }
+    .card:hover {
+      box-shadow: 0 12px 28px rgba(150, 90, 50, 0.15);
+      transform: translateY(-3px);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #7a4f2e;
+      margin-bottom: 0.75rem;
+      border-left: 4px solid #dbaa7a;
+      padding-left: 0.8rem;
+    }
+    .card p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #3d352e;
+    }
+    .card ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
+      color: #3d352e;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+
+    /* 适合人群 + 提示二合一 */
+    .two-column {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .col {
+      flex: 1 1 280px;
+      background: #fffcf7;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 8px 22px rgba(130, 80, 40, 0.08);
+    }
+    .col h3 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: #7a4f2e;
+      margin-bottom: 1rem;
+      border-bottom: 2px solid #eddac9;
+      padding-bottom: 0.5rem;
+    }
+    .col p {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #3d352e;
+      margin-bottom: 0.75rem;
+    }
+    .col ul {
+      padding-left: 1.2rem;
+      color: #3d352e;
+      font-size: 0.94rem;
+      line-height: 1.7;
+    }
+    .col ul li { margin-bottom: 0.25rem; }
+
+    /* 自然链接段落 */
+    .link-section {
+      background: #fffcf7;
+      border-radius: 32px;
+      padding: 2rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 22px rgba(130, 80, 40, 0.08);
+      text-align: left;
+    }
+    .link-section p {
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #2d2b2b;
+      margin-bottom: 0.8rem;
+    }
+    .link-section a {
+      color: #b26943;
+      text-decoration: none;
+      font-weight: 500;
+      background: #f3e1d1;
+      padding: 0.15rem 0.8rem;
+      border-radius: 30px;
+      transition: background 0.2s, color 0.2s;
+      white-space: nowrap;
+      display: inline-block;
+      line-height: 1.6;
+    }
+    .link-section a:hover {
+      background: #dbaa7a;
+      color: #ffffff;
+    }
+
+    /* FAQ 摘要 (简洁) */
+    .faq-mini {
+      background: #fffcf7;
+      border-radius: 32px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 22px rgba(130, 80, 40, 0.06);
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+      border-bottom: 1px solid #eee2d6;
+      padding-bottom: 0.6rem;
+    }
+    .faq-mini details:last-child { border-bottom: none; }
+    .faq-mini summary {
+      font-weight: 500;
+      color: #5a412f;
+      cursor: pointer;
+      padding: 0.3rem 0;
+      font-size: 0.95rem;
+    }
+    .faq-mini summary::marker { color: #b97d52; }
+    .faq-mini details p {
+      color: #3d352e;
+      font-size: 0.9rem;
+      line-height: 1.5;
+      margin-top: 0.3rem;
+      padding-left: 0.5rem;
+    }
+
+    /* 脚注 */
+    .footer-note {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #5f4d3e;
+      padding: 0.8rem 0 1.5rem;
+      border-top: 1px solid rgba(120, 80, 50, 0.15);
+      margin-top: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      body { padding: 1rem 0.75rem; }
+      .hero-card { padding: 1.8rem 1.2rem; }
+      .hero-card h1 { font-size: 2rem; }
+      .cards-grid { flex-direction: column; }
+      .two-column { flex-direction: column; }
+      .link-section { padding: 1.5rem 1.2rem; }
+      .faq-mini { padding: 1.2rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page-wrap">
+
+  <!-- 主视觉 Hero -->
+  <div class="hero-card">
+    <div class="hero-sub">运动 · 简简单单</div>
+    <h1>乐鱼体育</h1>
+    <p class="hero-desc">
+      一份专注于提供清晰路径的说明页。无论你刚接触还是想回顾基础，这里整理了关于平台用途、访问提醒以及常见疑问的要点。内容保持真实，只陈述事实。
+    </p>
+  </div>
+
+  <!-- 用途卡片 · 两张 -->
+  <div class="cards-grid">
+    <div class="card">
+      <h3>📋 信息与指引</h3>
+      <p>通过结构化的卡片和段落，快速了解平台能做什么、适合谁。不夸大，不渲染，只提供整理后的参考内容。</p>
+      <ul>
+        <li>主视觉定位</li>
+        <li>功能场景简述</li>
+        <li>适合人群描述</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🔐 访问提示</h3>
+      <p>如果你正在寻找 <strong>乐鱼体育</strong> 的页面，建议通过可靠的浏览器直接输入域名，或从常用的书签进入。保持设备与网络环境稳定。</p>
+      <ul>
+        <li>使用最新浏览器</li>
+        <li>注意网络连接</li>
+        <li>自行核实链接</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧭 快捷参考</h3>
+      <p>下文中包含一个可直接指向资源的链接。你可以把它当作一个参考锚点，结合自己的需要决定如何使用。</p>
+      <ul>
+        <li>自然嵌入句子</li>
+        <li>避免诱导措辞</li>
+        <li>保持文本干净</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 适合人群 + 访问提醒 两列 -->
+  <div class="two-column">
+    <div class="col">
+      <h3>👥 适合人群</h3>
+      <p>本页面内容适合以下类型的访问者：</p>
+      <ul>
+        <li>想获得一份简明、平实的介绍页</li>
+        <li>需要了解平台基本定位的新用户</li>
+        <li>对“暖色信息卡片”风格感兴趣</li>
+        <li>希望找到一条干净的自然链接</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">所有内容均以真实描述为原则，不针对特定群体做假设。</p>
+    </div>
+    <div class="col">
+      <h3>⚙️ 访问提醒</h3>
+      <p>当你准备前往对应页面时，请注意以下几点：</p>
+      <ul>
+        <li>检查网址拼写：<code>h5-page-leyu.com.cn</code></li>
+        <li>避免通过不明第三方链接跳转</li>
+        <li>如果页面加载异常，可稍后刷新</li>
+        <li>不要向任何人透露你的账户凭据</li>
+      </ul>
+      <p style="margin-top: 0.75rem;">养成自行核实域名的习惯，能有效减少误入仿冒页面的风险。</p>
+    </div>
+  </div>
+
+  <!-- 自然链接段落 (必须包含乐鱼体育 a 标签) -->
+  <div class="link-section">
+    <p>
+      如果你正在寻找与体育资讯相关的页面，可以参考 <a href="https://h5-page-leyu.com.cn">乐鱼体育</a> 这个地址。它本身是一个独立的站点，本页面仅作为一份结构化的说明页存在。链接被放在这里供你核对，是否使用完全由你自己判断。
+    </p>
+    <p>
+      日常浏览时，将常用网站加入书签会更方便。对于 <a href="https://h5-page-leyu.com.cn">乐鱼体育</a> 这样的资源，建议通过直接输入域名的方式访问，以避免中间页可能带来的困扰。保持简单往往最可靠。
+    </p>
+  </div>
+
+  <!-- FAQ 摘要（部分） -->
+  <div class="faq-mini">
+    <details>
+      <summary>这个页面是乐鱼体育的官方网站吗？</summary>
+      <p>不是。本页面是一个独立的介绍页，旨在用信息卡片的形式整理内容，并包含一个指向该域名的自然链接。官方页面请以实际域名展示为准。</p>
+    </details>
+    <details>
+      <summary>为什么强调“真实克制”的表述？</summary>
+      <p>为了让阅读者获得清晰、不夸大的信息。页面里不出现虚假承诺或诱导按钮，所有内容都经过简化整理，方便快速理解。</p>
+    </details>
+    <details>
+      <summary>我可以直接点击链接过去吗？</summary>
+      <p>链接是真实的，但建议你先核对域名拼写（h5-page-leyu.com.cn），并在网络环境安全时再决定是否访问。本页面不承担任何外部责任。</p>
+    </details>
+    <details>
+      <summary>暖色渐变背景有什么用意？</summary>
+      <p>主要是一种视觉选择：暖色让卡片内容显得柔和、整洁，也符合“认真整理过的说明页”这一方向。不影响信息本身。</p>
+    </details>
+  </div>
+
+  <!-- 简单脚注 -->
+  <div class="footer-note">
+    · 内容仅供信息参考 · 请自行判断 · 保持清醒 ·
+  </div>
+
+</div>
+</body>
+</html>
