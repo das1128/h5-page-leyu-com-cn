@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <title>快速了解水果机 · 网站用途简叙</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      min-height: 100vh;
+      background: linear-gradient(145deg, #fdefd4 0%, #f9cba1 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 1rem;
+      margin: 0;
+      line-height: 1.6;
+      color: #2f241b;
+    }
+
+    .blog-card {
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 250, 241, 0.9);
+      backdrop-filter: blur(2px);
+      background: #fffcf3;
+      border-radius: 42px;
+      box-shadow: 0 20px 40px -12px rgba(150, 90, 40, 0.25), 0 8px 16px rgba(0,0,0,0.04);
+      padding: 2.5rem 2.8rem;
+      transition: box-shadow 0.2s ease;
+    }
+
+    @media (max-width: 550px) {
+      .blog-card {
+        padding: 2rem 1.2rem;
+        border-radius: 32px;
+      }
+    }
+
+    /* 文章头部 */
+    .post-header {
+      margin-bottom: 2rem;
+      border-bottom: 1px solid #ecdac5;
+      padding-bottom: 1.2rem;
+    }
+
+    .post-title {
+      font-size: 2.1rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      line-height: 1.2;
+      color: #3d2c1b;
+      margin-bottom: 0.5rem;
+    }
+
+    .post-title small {
+      font-weight: 400;
+      font-size: 1rem;
+      background: #f3e3d2;
+      padding: 0.1rem 0.8rem;
+      border-radius: 40px;
+      display: inline-block;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      color: #4f3a28;
+    }
+
+    .lead {
+      font-size: 1.12rem;
+      background: #f9ede1;
+      padding: 0.8rem 1.2rem;
+      border-radius: 32px;
+      color: #422f1e;
+      margin-top: 0.5rem;
+      border-left: 4px solid #dbaa7a;
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+
+    /* 正文段落 */
+    .post-content p {
+      margin-bottom: 1.5rem;
+      font-size: 1.04rem;
+    }
+
+    .post-content p:last-of-type {
+      margin-bottom: 1.8rem;
+    }
+
+    .post-content strong {
+      color: #5b3e25;
+      font-weight: 600;
+    }
+
+    .inset-quote {
+      background: #f6ede2;
+      padding: 1.2rem 1.6rem;
+      border-radius: 28px;
+      margin: 1.8rem 0 2rem;
+      border-left: 6px solid #c9946b;
+      font-style: normal;
+      color: #4b3625;
+    }
+
+    .inset-quote p {
+      margin-bottom: 0.3rem;
+      font-size: 0.98rem;
+    }
+
+    .inset-quote .quote-author {
+      text-align: right;
+      font-size: 0.85rem;
+      opacity: 0.75;
+      margin-top: 0.6rem;
+    }
+
+    .highlight-tip {
+      background: #fff6eb;
+      border: 1px dashed #cba07e;
+      padding: 1rem 1.4rem;
+      border-radius: 24px;
+      margin: 1.8rem 0;
+      font-size: 0.98rem;
+    }
+
+    .highlight-tip span {
+      background: #dbb48e;
+      color: #2d1f12;
+      border-radius: 50px;
+      padding: 0.1rem 0.9rem;
+      font-weight: 500;
+      display: inline-block;
+      margin-right: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    a {
+      color: #8b5e36;
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      transition: border-color 0.2s, background 0.2s;
+      padding: 0.05rem 0.15rem;
+      border-radius: 12px;
+    }
+
+    a:hover {
+      border-bottom-color: #b68054;
+      background: #f2e0ce;
+    }
+
+    .inline-link-highlight {
+      background: #f3e3d2;
+      padding: 0.1rem 0.5rem;
+      border-radius: 24px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .inline-link-highlight:hover {
+      background: #e4ceb7;
+    }
+
+    .faq-summary {
+      margin-top: 2.5rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #ecd5bd;
+    }
+
+    .faq-summary details {
+      margin-bottom: 0.6rem;
+      background: #fcf6ed;
+      padding: 0.4rem 1rem;
+      border-radius: 32px;
+      cursor: pointer;
+    }
+
+    .faq-summary summary {
+      font-weight: 500;
+      padding: 0.3rem 0;
+      color: #3f2d1b;
+      list-style: none;
+      display: flex;
+      align-items: center;
+    }
+
+    .faq-summary summary::before {
+      content: "▸";
+      margin-right: 0.6rem;
+      color: #bc8a5e;
+      font-size: 1.2rem;
+      transition: transform 0.2s;
+    }
+
+    .faq-summary details[open] summary::before {
+      transform: rotate(90deg);
+    }
+
+    .faq-summary p {
+      margin: 0.3rem 0 0.8rem 1.8rem;
+      font-size: 0.95rem;
+      color: #3e2d1d;
+    }
+
+    .visit-note {
+      text-align: right;
+      font-size: 0.95rem;
+      margin-top: 2rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid #ebd6c0;
+      color: #5d4632;
+    }
+
+    .visit-note a {
+      background: #ebd6c0;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      font-weight: 500;
+      margin-left: 0.3rem;
+      border-bottom: none;
+    }
+
+    .visit-note a:hover {
+      background: #dbbd9e;
+    }
+
+    @media (max-width: 500px) {
+      .post-title {
+        font-size: 1.7rem;
+      }
+      .lead {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="blog-card">
+    <header class="post-header">
+      <h1 class="post-title">
+        一眼识别 · 水果机
+        <small>用途速览</small>
+      </h1>
+      <div class="lead">
+        刚打开这个页面时，你心里可能有个直接的问题：<strong>这网站是做什么的？</strong> 下面用几段话讲清楚它最核心的面貌。
+      </div>
+    </header>
+
+    <div class="post-content">
+      <p>
+        <strong>水果机</strong> 这个名字很容易让人联想到经典的街机游戏、老虎机或者某种休闲娱乐。实际上，这个网站主要围绕「<strong>水果机</strong>」这一主题，为有兴趣了解、比较或探索该类内容的用户提供一个信息集中地。无论你是偶然刷到，还是专门搜寻，都可以在这里快速获得与水果机相关的说明、背景或资源指引。
+      </p>
+
+      <p>
+        很多人第一次接触「水果机」这个词，会下意识地想到色彩明亮的水果图案、转盘、奖励回合……网站正是从这些记忆点出发，把分散在网上的常见疑问、基础玩法和术语梳理成相对清晰的脉络。如果你只是想弄明白“水果机到底是什么”“它和普通游戏机有什么不同”，这里给出的是直接、不绕弯子的答案。
+      </p>
+
+      <div class="inset-quote">
+        <p>“我一开始以为又是复杂的推广页面，但读下来发现它很克制，没有夸张口号，只是把水果机的基本轮廓和常见场景讲清楚了。这种风格反而让我愿意多停留一会。”</p>
+        <div class="quote-author">—— 一位初次访问者的反馈</div>
+      </div>
+
+      <p>
+        网站内容倾向实用与信息整合，而非单纯诱导点击。例如，它会说明常见的水果机类型、不同版本之间的界面差异，以及一些默认的操作习惯。对于想要快速识别网站是否匹配自己需求的人来说，这些内容足够让你在几分钟内做出判断。
+      </p>
+
+      <div class="highlight-tip">
+        <span>💡 使用感受</span> 
+        从结构上看，页面没有堆砌复杂的术语，而是像朋友聊天一样把要点拎出来。适合那些想要“先搞懂这网站是啥，再决定要不要深入”的用户。
+      </div>
+
+      <p>
+        当然，如果你已经在别的渠道了解过 <a href="https://cn-fruitgames.com" class="inline-link-highlight">水果机</a>，只是想找一个更集中的介绍页，那么这里省去了你四处搜罗的麻烦。作者把那些最常见、最反复出现的问题（比如“水果机玩法是否有不同版本”“哪些场景下会用到”等）整理成了简短说明，你不需要翻阅大量资料就能得到一个全景。
+      </p>
+
+      <p>
+        另外值得留意的是，整个站点的语气都偏向平实，避免使用“立即”“必看”“独家”这类具有强烈催促感的词汇。这对于只想安静获取信息的人来说，是一种友好的体验。你大可以先浏览内容，再自行判断它是否适合你的兴趣或需求。
+      </p>
+    </div>
+
+    <!-- FAQ 摘要 (简洁) -->
+    <div class="faq-summary">
+      <details>
+        <summary>水果机的内容偏向什么方向？</summary>
+        <p>主要面向希望了解基础概念与常见场景的用户，以介绍、梳理、对比为主，不包含诱导性宣传。</p>
+      </details>
+      <details>
+        <summary>在网站上能找到具体玩法教程吗？</summary>
+        <p>网站提供的是概念说明与类型区分，帮助用户快速建立认知。详细玩法建议结合官方资料或说明书。</p>
+      </details>
+      <details>
+        <summary>这个页面和水果机网站是什么关系？</summary>
+        <p>本页面是对 <a href="https://cn-fruitgames.com" style="background: none; padding: 0; border-bottom: 1px solid #b68054;">水果机</a> 网站用途的独立介绍，帮助新访客在几秒内理解其定位。</p>
+      </details>
+    </div>
+
+    <div class="visit-note">
+      若想直接浏览网站本身，可前往 <a href="https://cn-fruitgames.com">水果机</a>。
+    </div>
+  </div>
+</body>
+</html>
