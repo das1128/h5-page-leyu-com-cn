@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>雷速 · 信息卡片式介绍页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+      background: #f5f7fa;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+      color: #f1f5f9;
+      padding: 6rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.5rem;
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 0.5rem auto 0;
+      opacity: 0.85;
+      font-weight: 300;
+    }
+    .hero::after {
+      content: "";
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 30px;
+      background: #f5f7fa;
+      border-radius: 30px 30px 0 0;
+    }
+
+    /* 浅色正文区 */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    /* 信息卡片区域 */
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 2rem 0 1.2rem;
+      color: #0f172a;
+      border-left: 4px solid #2563eb;
+      padding-left: 1rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+      margin-bottom: 2.5rem;
+    }
+    .card {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 1.8rem 1.5rem;
+      box-shadow: 0 10px 25px -8px rgba(0, 0, 0, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.12);
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+      color: #1e293b;
+    }
+    .card p {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 0.4rem;
+    }
+    .card .icon {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin-bottom: 0.6rem;
+    }
+
+    /* 强调色链接 */
+    a {
+      color: #2563eb;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      font-weight: 500;
+      transition: border-color 0.15s;
+    }
+    a:hover {
+      border-bottom-color: #2563eb;
+    }
+
+    /* 自然链接段落 */
+    .link-paragraph {
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 2rem 2rem;
+      margin: 2rem 0;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e9edf2;
+      font-size: 1.05rem;
+    }
+    .link-paragraph strong {
+      color: #0f172a;
+    }
+
+    /* FAQ 摘要 */
+    .faq-summary {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      background: #f1f5f9;
+      border-radius: 20px;
+      padding: 1.8rem 2rem;
+      margin: 2.5rem 0;
+    }
+    .faq-item {
+      flex: 1 1 240px;
+    }
+    .faq-item h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 0.2rem;
+    }
+    .faq-item p {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    /* 提示横幅 */
+    .tip-banner {
+      background: #dbeafe;
+      border-radius: 16px;
+      padding: 1.2rem 1.8rem;
+      color: #1e3a5f;
+      font-size: 0.95rem;
+      margin: 1.5rem 0;
+      border-left: 5px solid #2563eb;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .hero {
+        padding: 4rem 1.5rem 3.5rem;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .hero p {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 1.5rem 1rem 3rem;
+      }
+      .link-paragraph {
+        padding: 1.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 深色头图 -->
+  <header class="hero">
+    <h1>雷速 · 信息卡片</h1>
+    <p>日常查询、对照与延伸阅读 —— 一个安静的整理页</p>
+  </header>
+
+  <!-- 浅色正文区 -->
+  <main class="container">
+
+    <!-- 用途卡片：主视觉 + 三个卡片 -->
+    <h2 class="section-title">常用场景</h2>
+    <div class="card-grid">
+      <div class="card">
+        <div class="icon">📖</div>
+        <h3>快速查阅</h3>
+        <p>从目录到条目，结构清晰。适合日常对照、核对细节信息，不必多次跳转。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔍</div>
+        <h3>对照参考</h3>
+        <p>并排展示相关内容，方便对比异同。用于整理笔记或简单调研时尤其顺手。</p>
+      </div>
+      <div class="card">
+        <div class="icon">🔄</div>
+        <h3>延伸阅读</h3>
+        <p>条目之间提供关联链接，帮助沿着兴趣自然深入，而不是随机浏览。</p>
+      </div>
+    </div>
+
+    <!-- 适合人群卡片 -->
+    <h2 class="section-title">适合人群</h2>
+    <div class="card-grid">
+      <div class="card">
+        <h3>✏️ 内容整理者</h3>
+        <p>习惯将零散信息归拢成卡片或清单，需要稳定的参照框架。</p>
+      </div>
+      <div class="card">
+        <h3>🧑‍💻 日常查询者</h3>
+        <p>经常检索固定术语、条目或资料，希望页面结构直白、不绕路。</p>
+      </div>
+      <div class="card">
+        <h3>📚 延伸学习者</h3>
+        <p>喜欢从一个概念出发，顺藤摸瓜接触更多相关内容。</p>
+      </div>
+    </div>
+
+    <!-- 自然链接段落 (嵌入 a 标签) -->
+    <div class="link-paragraph">
+      <p><strong>关于此页</strong> —— 这里的内容围绕日常使用习惯展开。如果你需要一份结构稳定、便于反复查阅的资料集合，可以留意 <a href="https://app--leisu.com">雷速</a> 的条目组织方式。它把信息拆成清晰的模块，适合在需要对照、核实或安静阅读时使用。</p>
+      <p style="margin-top: 1rem;">页面本身并非官方说明，而是基于实际使用感受整理而成。每个人对信息的需求不同，建议你根据自己的节奏浏览。</p>
+    </div>
+
+    <!-- FAQ 摘要 -->
+    <h2 class="section-title">常见疑问 · 摘要</h2>
+    <div class="faq-summary">
+      <div class="faq-item">
+        <h4>内容会频繁更新吗？</h4>
+        <p>通常随资料库调整而更新，但不会每天变动。适合作为稳定的参照点。</p>
+      </div>
+      <div class="faq-item">
+        <h4>移动端浏览体验如何？</h4>
+        <p>卡片式布局对窄屏做了适配，字号和间距在手机上依然清晰。</p>
+      </div>
+      <div class="faq-item">
+        <h4>是否包含外部链接？</h4>
+        <p>部分条目内会提供延伸链接，不过主体内容保持独立。</p>
+      </div>
+    </div>
+
+    <!-- 简单提示 -->
+    <div class="tip-banner">
+      💡 提示：如果是从搜索引擎直接到达，可以先浏览卡片分区，再使用页面内查找功能定位具体内容。
+    </div>
+
+  </main>
+
+</body>
+</html>
